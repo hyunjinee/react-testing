@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import Button from 'components/common/Button';
+import Input from 'components/Input';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Contents>
+        <InputContainer>
+          <Input placeholder="할 일을 입력해주세요." />
+          <Button label="추가" />
+        </InputContainer>
+      </Contents>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  min-height: 100vh;
+  /* background: red; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Contents = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+`;
 
 export default App;

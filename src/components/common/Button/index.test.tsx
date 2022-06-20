@@ -20,7 +20,7 @@ describe('<Button/>', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('changes backgroundCOlor and hoverColor Props', () => {
+  it('changes backgroundColor and hoverColor Props', () => {
     const backgroundColor = '#304FFE';
     const hoverColor = '#1E40FF';
 

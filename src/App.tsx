@@ -4,46 +4,20 @@ import styled from 'styled-components';
 import Button from 'components/common/Button';
 import Input from 'components/common/Input';
 import TodoItem from 'components/TodoItem';
+import InputContainer from 'components/InputContainer';
+import TodoList from 'components/TodoList';
+import { TodoListProvider } from 'contexts/TodoListContext';
 
 function App() {
-  const [todo, setTodo] = useState('');
-  const [todoList, setTodoList] = useState<string[]>([]);
-
-  const addTodo = () => {
-    if (todo) {
-      setTodoList([...todoList, todo]);
-      setTodo('');
-    }
-  };
-
-  const deleteTodo = (index: number) => {
-    let list = [...todoList];
-    list.splice(index, 1);
-    setTodoList(list);
-  };
-
   return (
-    <Container>
-      <Contents>
-        <TodoListContainer data-testid="todoList">
-          {todoList.map((item, index) => (
-            <TodoItem
-              key={item + index}
-              label={item}
-              onDelete={() => deleteTodo(index)}
-            />
-          ))}
-        </TodoListContainer>
-        <InputContainer>
-          <Input
-            placeholder="할 일을 입력해 주세요."
-            onChange={(text) => setTodo(text)}
-            value={todo}
-          />
-          <Button label="추가" onClick={addTodo} />
-        </InputContainer>
-      </Contents>
-    </Container>
+    <TodoListProvider>
+      <Container>
+        <Contents>
+          <TodoList />
+          <InputContainer />
+        </Contents>
+      </Container>
+    </TodoListProvider>
   );
 }
 
@@ -72,10 +46,6 @@ const TodoListContainer = styled.div`
   overflow-y: scroll;
   border: 1px solid #bdbdbd;
   margin-bottom: 20px;
-`;
-
-const InputContainer = styled.div`
-  display: flex;
 `;
 
 export default App;

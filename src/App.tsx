@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Button from 'components/common/Button';
 import Input from 'components/common/Input';
@@ -7,17 +8,23 @@ import TodoItem from 'components/TodoItem';
 import InputContainer from 'components/InputContainer';
 import TodoList from 'components/TodoList';
 import { TodoListProvider } from 'contexts/TodoListContext';
+import List from 'pages/List';
 
 function App() {
   return (
-    <TodoListProvider>
-      <Container>
-        <Contents>
-          <TodoList />
-          <InputContainer />
-        </Contents>
-      </Container>
-    </TodoListProvider>
+    <BrowserRouter>
+      <TodoListProvider>
+        <Container>
+          <Routes>
+            <Route path="/" element={<List />} />
+          </Routes>
+          {/* <Contents>
+            <TodoList />
+            <InputContainer />
+          </Contents> */}
+        </Container>
+      </TodoListProvider>
+    </BrowserRouter>
   );
 }
 

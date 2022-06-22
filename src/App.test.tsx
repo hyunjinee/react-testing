@@ -59,4 +59,16 @@ describe('<App/>', () => {
 
     expect(todoList.childElementCount).toBe(length);
   });
+
+  it('loads localStorage data', () => {
+    localStorage.setItem(
+      'todoList',
+      JSON.stringify(['아이폰 사기', '갤럭시 사기']),
+    );
+    render(<App />);
+
+    expect(screen.getByText('아이폰 사기')).toBeInTheDocument();
+    expect(screen.getByText('갤럭시 사기')).toBeInTheDocument();
+    expect(screen.getAllByText('삭제')).toHaveLength(2);
+  });
 });

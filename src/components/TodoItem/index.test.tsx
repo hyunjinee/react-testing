@@ -5,7 +5,7 @@ import TodoItem from '.';
 
 describe('<TodoItem/>', () => {
   it('renders component correctly', () => {
-    const { container } = render(<TodoItem label="default value" />);
+    const { container } = render(<TodoItem id={1} label="default value" />);
 
     const todoItem = screen.getByText('default value');
     expect(todoItem).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('<TodoItem/>', () => {
   it('clicks the delete button', () => {
     const handleClick = jest.fn();
 
-    render(<TodoItem label="default value" onDelete={handleClick} />);
+    render(<TodoItem id={1} label="default value" onDelete={handleClick} />);
 
     const deleteButton = screen.getByText('삭제');
     expect(handleClick).toHaveBeenCalledTimes(0);

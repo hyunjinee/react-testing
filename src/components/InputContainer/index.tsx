@@ -5,7 +5,11 @@ import Input from 'components/common/Input';
 import { TodoListContext } from 'contexts/TodoListContext';
 import { Container } from './styles';
 
-const InputContainer: React.FC = () => {
+interface Props {
+  readonly onAdd?: () => void;
+}
+
+const InputContainer: React.FC<Props> = ({ onAdd }) => {
   const [todo, setTodo] = useState('');
   const { addTodo } = useContext(TodoListContext);
 
@@ -21,6 +25,9 @@ const InputContainer: React.FC = () => {
         onClick={() => {
           addTodo(todo);
           setTodo('');
+          if (todo && typeof onAdd === 'function') {
+            onAdd();
+          }
         }}
       />
     </Container>

@@ -9,6 +9,7 @@ import InputContainer from 'components/InputContainer';
 import TodoList from 'components/TodoList';
 import { TodoListProvider } from 'contexts/TodoListContext';
 import List from 'pages/List';
+import Add from 'pages/Add';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<List />} />
+            <Route path="/add" element={<Add />} />
           </Routes>
           {/* <Contents>
             <TodoList />

@@ -33,6 +33,21 @@ exports[`<App/> renders component correctly 1`] = `
   outline: none;
 }
 
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  min-width: 350px;
+  height: 400px;
+  overflow-y: scroll;
+  border: 1px solid #bdbdbd;
+  margin-bottom: 20px;
+}
+
 .c0 {
   min-height: 100vh;
   display: -webkit-box;
@@ -61,21 +76,6 @@ exports[`<App/> renders component correctly 1`] = `
   padding: 20px;
   border-radius: 8px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-}
-
-.c2 {
-  min-width: 350px;
-  height: 400px;
-  overflow-y: scroll;
-  border: 1px solid #bdbdbd;
-  margin-bottom: 20px;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div>

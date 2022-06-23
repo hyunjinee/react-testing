@@ -5,12 +5,14 @@ import { TodoListProvider } from 'contexts/TodoListContext';
 import List from 'pages/List';
 import Add from 'pages/Add';
 import Detail from 'pages/Detail';
+import Header from 'components/common/Header';
 
 function App() {
   return (
     <BrowserRouter>
       <TodoListProvider>
         <Container>
+          <Header />
           <Routes>
             <Route path="/" element={<List />} />
             <Route path="/add" element={<Add />} />

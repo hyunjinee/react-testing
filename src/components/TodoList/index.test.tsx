@@ -3,6 +3,7 @@ import 'jest-styled-components';
 
 import { TodoListProvider } from 'contexts/TodoListContext';
 import TodoList from '.';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 
 describe('<TodoList/>', () => {
   it('renders component correctly', () => {
@@ -26,9 +27,11 @@ describe('<TodoList/>', () => {
     );
 
     render(
-      <TodoListProvider>
-        <TodoList />
-      </TodoListProvider>,
+      <MemoryRouter>
+        <TodoListProvider>
+          <TodoList />
+        </TodoListProvider>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText('아이폰 사기')).toBeInTheDocument();
@@ -43,9 +46,11 @@ describe('<TodoList/>', () => {
     );
 
     render(
-      <TodoListProvider>
-        <TodoList />
-      </TodoListProvider>,
+      <MemoryRouter>
+        <TodoListProvider>
+          <TodoList />
+        </TodoListProvider>
+      </MemoryRouter>,
     );
 
     const todoItem = screen.getByText('아이폰 사기');
@@ -56,5 +61,33 @@ describe('<TodoList/>', () => {
     expect(
       JSON.parse(localStorage.getItem('todoList') as string),
     ).not.toContain('아이폰 사기');
+  });
+
+  it('moves to detail page', () => {
+    const TestComponent = (): JSX.Element => {
+      const { pathname } = useLocation();
+      return <div>{pathname}</div>;
+    };
+
+    localStorage.setItem('todoList', '["아이폰 사기", "갤럭시 사기"]');
+
+    render(
+      <MemoryRouter>
+        <TestComponent />
+        <TodoListProvider>
+          <TodoList />
+        </TodoListProvider>
+      </MemoryRouter>,
+    );
+
+    const url = screen.getByText('/');
+    expect(url).toBeInTheDocument();
+
+    const todoItem = screen.getByText('아이폰 사기');
+    expect(todoItem).toBeInTheDocument();
+
+    expect(todoItem.getAttribute('href')).toBe('/detail/0');
+    fireEvent.click(todoItem);
+    expect(url.textContent).toBe('/detail/0');
   });
 });

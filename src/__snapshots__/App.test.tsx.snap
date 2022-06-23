@@ -1,36 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App/> renders component correctly 1`] = `
-.c5 {
-  background-color: #304FFE;
-  padding: 10px 20px;
-  text-align: center;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.c5:hover {
-  background-color: #1E40FF;
-}
-
-.c5:active {
-  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
-}
-
-.c6 {
-  color: #ffffff;
-  font-size: 16px;
-}
-
 .c4 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  font-size: 16px;
-  padding: 10px 10px;
-  border-radius: 8px;
+  min-width: 350px;
+  height: 400px;
+  overflow-y: scroll;
   border: 1px solid #bdbdbd;
-  outline: none;
+  margin-bottom: 20px;
 }
 
 .c3 {
@@ -38,14 +14,80 @@ exports[`<App/> renders component correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  position: relative;
+  padding: 20px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 {
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #304ffe;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: -30px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5:hover {
+  background-color: #1e40ff;
+}
+
+.c5:active {
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #1e40ff;
 }
 
 .c2 {
-  min-width: 350px;
-  height: 400px;
-  overflow-y: scroll;
-  border: 1px solid #bdbdbd;
-  margin-bottom: 20px;
+  padding: 20px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .c0 {
@@ -64,20 +106,6 @@ exports[`<App/> renders component correctly 1`] = `
   justify-content: center;
 }
 
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-}
-
 <div>
   <div
     class="c0"
@@ -87,26 +115,23 @@ exports[`<App/> renders component correctly 1`] = `
     >
       <div
         class="c2"
+      >
+        할 일 목록
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      <div
+        class="c4"
         data-testid="todoList"
       />
-      <div
-        class="c3"
+      <a
+        class="c5"
+        href="/add"
       >
-        <input
-          class="c4"
-          placeholder="할 일을 입력해 주세요."
-          value=""
-        />
-        <div
-          class="c5"
-        >
-          <div
-            class="c6"
-          >
-            추가
-          </div>
-        </div>
-      </div>
+        +
+      </a>
     </div>
   </div>
 </div>

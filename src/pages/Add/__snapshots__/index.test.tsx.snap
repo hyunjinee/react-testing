@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Add/> renders component correctly 1`] = `
+<div>
+  <div
+    class="sc-eCYdqJ fDbufC"
+  >
+    <div
+      class="sc-hKMtZM ggUkCk"
+    >
+      <input
+        class="sc-dkzDqf kpbFyQ"
+        placeholder="할 일을 입력해 주세요."
+        value=""
+      />
+      <div
+        class="sc-bczRLJ zgHZe"
+      >
+        <div
+          class="sc-gsnTZi fSQIOg"
+        >
+          추가
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

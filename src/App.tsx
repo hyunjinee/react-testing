@@ -10,23 +10,21 @@ import NotFound from 'pages/NotFound';
 
 function App() {
   return (
-    <BrowserRouter>
-      <TodoListProvider>
-        <Container>
-          <Header />
-          <Routes>
-            <Route path="/" element={<List />} />
-            <Route path="/add" element={<Add />} />
-            <Route path="/detail/:id" element={<Detail />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          {/* <Contents>
+    <TodoListProvider>
+      <Container>
+        <Header />
+        <Routes>
+          <Route path="/" element={<List />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        {/* <Contents>
             <TodoList />
             <InputContainer />
           </Contents> */}
-        </Container>
-      </TodoListProvider>
-    </BrowserRouter>
+      </Container>
+    </TodoListProvider>
   );
 }
 

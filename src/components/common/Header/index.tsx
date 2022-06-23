@@ -7,6 +7,7 @@ const Header: React.FC = () => {
   let title = '에러';
 
   if (pathname === '/') {
+    // console.log(pathname);
     title = '할 일 목록';
   } else if (pathname === '/add') {
     title = '할 일 추가';

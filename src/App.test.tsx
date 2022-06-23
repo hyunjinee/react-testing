@@ -1,6 +1,11 @@
 import 'jest-styled-components';
 import { fireEvent, render, screen } from '@testing-library/react';
 import App from 'App';
+import InputContainer from 'components/InputContainer';
+
+beforeEach(() => {
+  localStorage.clear();
+});
 
 describe('<App/>', () => {
   it('renders component correctly', () => {
@@ -49,15 +54,46 @@ describe('<App/>', () => {
   });
 
   it('does not add empty Todo', () => {
-    render(<App />);
-
-    const todoList = screen.getByTestId('todoList');
-    const length = todoList.childElementCount;
+    render(<InputContainer />);
 
     const button = screen.getByText('추가');
+    expect(button).toBeInTheDocument();
     fireEvent.click(button);
 
-    expect(todoList.childElementCount).toBe(length);
+    const todoList = localStorage.getItem('todoList');
+    expect(todoList).toBeNull();
+
+    // expect(screen.getByText('할 일 목록')).toBeInTheDocument();
+
+    // history.push('/add');
+    // history.replace('/add');
+
+    // expect(screen.getByText('추가')).toBeInTheDocument();
+
+    // render(
+
+    //   // <Router location={history.location} navigator={history}>
+    //   //   <InputContainer />
+    //   // </Router>,
+    // );
+
+    // const label = screen.getByText('할 일 목록');
+    // expect(label).toBeInTheDocument();
+    // history.push('/add');
+    // const addLabel = screen.getByText('할 일 추가');
+    // expect(addLabel).toBeInTheDocument();
+    // const todoList = screen.getByTestId('todoList');
+    // let todoList = JSON.parse(
+    //   localStorage.getItem('todoList') as string,
+    // ) as string[];
+    // console.log(typeof todoList);
+    // const length = todoList.length;
+    // const button = screen.getByText('추가');
+
+    // fireEvent.click(button);
+
+    // todoList = JSON.parse(localStorage.getItem('todoList') as string);
+    // expect(todoList.length).toBe(length);
   });
 
   it('loads localStorage data', () => {

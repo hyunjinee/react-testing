@@ -47,4 +47,21 @@ describe('<InputContainer/>', () => {
       JSON.stringify(['아이폰 사기']),
     );
   });
+
+  it('class the onAdd function when the user clicks Add button', () => {
+    const handleClick = jest.fn();
+    render(<InputContainer onAdd={handleClick} />);
+
+    const input = screen.getByPlaceholderText('할 일을 입력해 주세요.');
+    const button = screen.getByText('추가');
+    expect(handleClick).not.toHaveBeenCalled();
+
+    fireEvent.click(button);
+
+    expect(handleClick).toHaveBeenCalledTimes(0);
+
+    fireEvent.change(input, { target: { value: '아이폰 사기' } });
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
 });

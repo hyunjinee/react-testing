@@ -6,6 +6,7 @@ import List from 'pages/List';
 import Add from 'pages/Add';
 import Detail from 'pages/Detail';
 import Header from 'components/common/Header';
+import NotFound from 'pages/NotFound';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<List />} />
             <Route path="/add" element={<Add />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           {/* <Contents>
             <TodoList />

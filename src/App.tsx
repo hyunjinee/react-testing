@@ -1,15 +1,10 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Button from 'components/common/Button';
-import Input from 'components/common/Input';
-import TodoItem from 'components/TodoItem';
-import InputContainer from 'components/InputContainer';
-import TodoList from 'components/TodoList';
 import { TodoListProvider } from 'contexts/TodoListContext';
 import List from 'pages/List';
 import Add from 'pages/Add';
+import Detail from 'pages/Detail';
 
 function App() {
   return (
@@ -19,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<List />} />
             <Route path="/add" element={<Add />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Routes>
           {/* <Contents>
             <TodoList />

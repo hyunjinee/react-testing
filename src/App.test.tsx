@@ -1,8 +1,8 @@
 import 'jest-styled-components';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from 'App';
 import InputContainer from 'components/InputContainer';
-import { MemoryRouter } from 'react-router-dom';
 
 beforeEach(() => {
   localStorage.clear();
@@ -119,5 +119,36 @@ describe('<App/>', () => {
     expect(screen.getByText('아이폰 사기')).toBeInTheDocument();
     expect(screen.getByText('갤럭시 사기')).toBeInTheDocument();
     expect(screen.getAllByText('삭제')).toHaveLength(2);
+  });
+
+  it('goes to Add page and goBack to List page', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
+
+    const addButton = screen.getByText('+');
+    fireEvent.click(addButton);
+
+    const header = screen.getByText('할 일 추가');
+    expect(header).toBeInTheDocument();
+
+    const goBack = screen.getByText('돌아가기');
+    expect(goBack).toBeInTheDocument();
+
+    const input = screen.getByPlaceholderText('할 일을 입력해 주세요.');
+    expect(input).toBeInTheDocument();
+
+    const button = screen.getByText('추가');
+    expect(button).toBeInTheDocument();
+
+    expect(container).toMatchSnapshot();
+
+    fireEvent.click(goBack);
+    expect(header.textContent).toBe('할 일 목록');
+
+    const todoList = screen.getByTestId('todoList');
+    expect(todoList).toBeInTheDocument();
   });
 });

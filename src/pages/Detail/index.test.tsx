@@ -1,4 +1,10 @@
-import { Router, Route, Routes, useLocation } from 'react-router-dom';
+import {
+  Router,
+  Route,
+  Routes,
+  useLocation,
+  MemoryRouter,
+} from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { fireEvent, render, screen } from '@testing-library/react';
 import 'jest-styled-components';

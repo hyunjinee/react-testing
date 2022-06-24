@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List/> renders component correctly 1`] = `
+<div>
+  <div
+    class="sc-iBkjds KavGT"
+  >
+    <div
+      class="sc-gKXOVf eJVsLV"
+      data-testid="todoList"
+    >
+      <div
+        class="sc-eCYdqJ fHVchU"
+      >
+        <a
+          class="sc-jSMfEi fzvlKC"
+          href="/detail/0"
+        >
+          할 일 1
+        </a>
+        <div
+          class="sc-dkzDqf dgyiws"
+        >
+          <div
+            class="sc-hKMtZM dTJMco"
+          >
+            삭제
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-eCYdqJ fHVchU"
+      >
+        <a
+          class="sc-jSMfEi fzvlKC"
+          href="/detail/1"
+        >
+          할 일 2
+        </a>
+        <div
+          class="sc-dkzDqf dgyiws"
+        >
+          <div
+            class="sc-hKMtZM dTJMco"
+          >
+            삭제
+          </div>
+        </div>
+      </div>
+    </div>
+    <a
+      class="sc-ftvSup kUpiXW"
+      href="/add"
+    >
+      +
+    </a>
+  </div>
+</div>
+`;

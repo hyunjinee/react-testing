@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound/> render component correctly 1`] = `
+.c0 {
+  font-size: 20px;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    page not found
+  </div>
+</div>
+`;
